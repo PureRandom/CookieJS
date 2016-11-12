@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>QUnit Tests for CookieJS Get/Set Functions</title>
+
+	<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.0.1.css">
+	<script src="https://code.jquery.com/qunit/qunit-2.0.1.js"></script>
+	<script src="../CookieJSFull.js"></script>
+
+	<script>
+  QUnit.test("Set/Get Exists", function( assert ) {
+    //Check if exist
+    assert.notEqual(typeof setCookie(), 'undefined');
+    assert.notEqual(typeof getCookie(), 'undefined');
+  });
+
+  QUnit.test("Set/Get Cookie", function( assert ) {
+    //Set Cookie
+    const cookieName = 'cookieTest';
+    const cookieValue = 'TestPass';
+    setCookie(cookieName, cookieValue, 1)    
+
+    assert.equal(getCookie(cookieName), cookieValue);
+  });
+  </script>
+</head>
+
+<body>
+
+	<div id="qunit"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>QUnit Tests for CookieJS Full Object</title>
+
+	<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.0.1.css">
+	<script src="https://code.jquery.com/qunit/qunit-2.0.1.js"></script>
+	<script src="../CookieJSFull.js"></script>
+
+	<script>
+  QUnit.test("Full Object Exists", function( assert ) {
+    //Check if exist
+    assert.notEqual(typeof window.CookieObj, 'undefined');
+    assert.notEqual(typeof window.CookieObj.setCookie, 'undefined');
+    assert.notEqual(typeof window.CookieObj.getCookie, 'undefined');
+    assert.notEqual(typeof window.CookieObj.checkCookie, 'undefined');
+  });
+
+  QUnit.test("Full Object Set/Get Cookie", function( assert ) {
+    //Set Cookie
+    const cookieName = 'cookieTest';
+    const cookieValue = 'TestPass';
+    window.CookieObj.setCookie(cookieName, cookieValue, 1)    
+
+    assert.equal(window.CookieObj.getCookie(cookieName), cookieValue);
+  });
+
+  QUnit.test("Full Object Check Cookie False", function( assert ) {
+    const cookieName = 'cookieCheckTestFalse'; 
+    assert.equal(window.CookieObj.checkCookie(cookieName), false);
+  });
+
+  QUnit.test("Full Object Check Cookie True", function( assert ) {
+    const cookieName = 'cookieCheckTestTrue';
+    const cookieValue = 'TestPass';
+    window.CookieObj.setCookie(cookieName, cookieValue, 1)  
+
+    assert.equal(window.CookieObj.checkCookie(cookieName), true);
+  });
+  </script>
+</head>
+
+<body>
+
+	<div id="qunit"></div>
+
+</body>
+
+</html>

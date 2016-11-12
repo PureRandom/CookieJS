@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>QUnit Tests for CookieJS Check Function</title>
+
+	<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.0.1.css">
+	<script src="https://code.jquery.com/qunit/qunit-2.0.1.js"></script>
+	<script src="../CookieJSFull.js"></script>
+
+	<script>
+  QUnit.test("Set/Get Exists", function( assert ) {
+    //Check if exist
+    assert.notEqual(typeof setCookie(), 'undefined');
+    assert.notEqual(typeof checkCookie(), 'undefined');
+  });
+
+  QUnit.test("Check Cookie False", function( assert ) {
+    const cookieName = 'cookieCheckTestFalse'; 
+    assert.equal(checkCookie(cookieName), false);
+  });
+
+  QUnit.test("Check Cookie True", function( assert ) {
+    const cookieName = 'cookieCheckTestTrue';
+    const cookieValue = 'TestPass';
+    setCookie(cookieName, cookieValue, 1)  
+
+    assert.equal(checkCookie(cookieName), true);
+  });
+  </script>
+</head>
+
+<body>
+
+	<div id="qunit"></div>
+
+</body>
+
+</html>
