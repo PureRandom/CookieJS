@@ -1,0 +1,16 @@
+<snippet>
+    <content><![CDATA[function checkCookie(cname) {
+    const cookie = window.CookieObj.getCookie(cname);
+    if (cookie !== '') {
+        return true;
+    }
+    return false;
+}
+]]></content>
+    <!-- Optional: Tab trigger to activate the snippet -->
+    <tabTrigger>chkcookie</tabTrigger>
+    <!-- Optional: Scope the tab trigger will be active in -->
+    <scope>source.javascript</scope>
+    <!-- Optional: Description to show in the menu -->
+    <description>CHECK Cookie Function</description>
+</snippet>
