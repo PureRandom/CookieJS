@@ -5,21 +5,27 @@
 		"description": "CHECK Cookie Function",
 		"scope": "source.javascript"
 	},
+	"cookieclass": {
+		"prefix": "cookieclass",
+		"body": "class cookiesJs {\n    setCookie(cname, cvalue, exdays) {\n        const d = new Date();\n        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));\n        const expires = `expires=${d.toUTCString()}`;\n        document.cookie = `${cname}=${cvalue};${expires}`;\n    }\n    getCookie(cname) {\n        const name = `${cname}=`;\n        const ca = document.cookie.split(';');\n        for (let i = 0; i < ca.length; i += 1) {\n            let c = ca[i];\n            while (c.charAt(0) === ' ') c = c.substring(1);\n            if (c.indexOf(name) === 0) return c.substring(name.length, c.length);\n        }\n        return '';\n    }\n    checkCookie(cname) {\n        const cookie = this.getCookie(cname);\n        if (cookie !== '') {\n            return true;\n        }\n        return false;\n    }\n}\n",
+		"description": "Cookie Class to Create, Edit, Get and Check Cookies.",
+		"scope": "source.javascript"
+	},
 	"getcookie": {
 		"prefix": "getcookie",
-		"body": "function getCookie(cname) {\n    const name = cname + '=';\n    const ca = document.cookie.split(';');\n    for (let i = 0; i < ca.length; i += 1) {\n        let c = ca[i];\n        while (c.charAt(0) === ' ') c = c.substring(1);\n        if (c.indexOf(name) === 0) return c.substring(name.length, c.length);\n    }\n    return '';\n}\n",
+		"body": "function getCookie(cname) {\n    const name = `${cname}=`;\n    const ca = document.cookie.split(';');\n    for (let i = 0; i < ca.length; i += 1) {\n        let c = ca[i];\n        while (c.charAt(0) === ' ') c = c.substring(1);\n        if (c.indexOf(name) === 0) return c.substring(name.length, c.length);\n    }\n    return '';\n}\n",
 		"description": "GET Cookie Function",
 		"scope": "source.javascript"
 	},
 	"cookieobj": {
 		"prefix": "cookieobj",
-		"body": "const cookies = (function () {\n    return {\n        setCookie: (cname, cvalue, exdays) => {\n            const d = new Date();\n            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));\n            const expires = 'expires=' + d.toUTCString();\n            document.cookie = cname + '=' + cvalue + '; ' + expires;\n        },\n        getCookie: (cname) => {\n            const name = cname + '=';\n            const ca = document.cookie.split(';');\n            for (let i = 0; i < ca.length; i += 1) {\n                let c = ca[i];\n                while (c.charAt(0) === ' ') c = c.substring(1);\n                if (c.indexOf(name) === 0) return c.substring(name.length, c.length);\n            }\n            return '';\n        },\n        checkCookie: (cname) => {\n            const cookie = window.CookieObj.getCookie(cname);\n            if (cookie !== '') {\n                return true;\n            }\n            return false;\n        },\n    };\n}());\n\nwindow.CookieObj = cookies;\n",
+		"body": "const cookies = (function () {\n    return {\n        setCookie: (cname, cvalue, exdays) => {\n            const d = new Date();\n            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));\n            const expires = 'expires=' + d.toUTCString();\n            document.cookie = cname + '=' + cvalue + '; ' + expires;\n        },\n        getCookie: (cname) => {\n            const name = cname + '=';\n            const ca = document.cookie.split(';');\n            for (let i = 0; i < ca.length; i += 1) {\n                let c = ca[i];\n                while (c.charAt(0) === ' ') c = c.substring(1);\n                if (c.indexOf(name) === 0) return c.substring(name.length, c.length);\n            }\n            return '';\n        },\n        checkCookie: (cname) => {\n            const cookie = window.CookieObj.getCookie(cname);\n            if (cookie !== '') {\n                return true;\n            }\n            return false;\n        },\n    };\n}());\nwindow.CookieObj = cookies;\n",
 		"description": "Cookie Object to Create, Edit, Get and Check Cookies.",
 		"scope": "source.javascript"
 	},
 	"setcookie": {
 		"prefix": "setcookie",
-		"body": "function setCookie(cname, cvalue, exdays) {\n    const d = new Date();\n    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));\n    const expires = 'expires=' + d.toUTCString();\n    document.cookie = cname + '=' + cvalue + '; ' + expires;\n}\n",
+		"body": "function setCookie(cname, cvalue, exdays) {\n    const d = new Date();\n    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));\n    const expires = `expires=${d.toUTCString()}`;\n    document.cookie = `${cname}=${cvalue};${expires}`;\n}\n",
 		"description": "SET Cookie Function.",
 		"scope": "source.javascript"
 	}

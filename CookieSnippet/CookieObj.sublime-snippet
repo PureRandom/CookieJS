@@ -26,7 +26,6 @@
         },
     };
 }());
-
 window.CookieObj = cookies;
 ]]></content>
     <!-- Optional: Tab trigger to activate the snippet -->

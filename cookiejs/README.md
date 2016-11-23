@@ -1,7 +1,7 @@
 # JavaScript Cookie Maker!
 
 This snippet creates the functions for creating cookies, getting cookies and checking if the cookie exists.
-You can also use the snippet to create a whole JavaScript object with all three functions in it.
+You can also use the snippet to create a whole JavaScript ES6 Class or Object with all three functions in it.
 
 # Installation
 
@@ -16,7 +16,8 @@ You can also use the snippet to create a whole JavaScript object with all three 
 # How to use?
 
 Start typing one of the following commands and then tap enter or tab.
-* 'cookieobj' for full CookieJs object
+* 'cookieobj' for full CookieJs Object
+* 'cookieclass' for full CookieJs Class
 * 'chkcookie' for Check Cookie Function
 * 'getcookie' for Get Cookie Function
 * 'setcookie' for Set Cookie Function
@@ -33,4 +34,7 @@ Initial release of ...
 Information Update
 
 ### 1.3.0
-Updated to complie with the Airbnb Style Guide using eslint
+Updated to complie with the Airbnb Style Guide using eslint.
+
+### 1.3.5
+Updated to add ES6 Class.

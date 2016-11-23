@@ -6,32 +6,41 @@
 
 	<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.0.1.css">
 	<script src="https://code.jquery.com/qunit/qunit-2.0.1.js"></script>
-	<script src="../CookieJSFull.js"></script>
+	<script src="../CookieJSFullClass.js"></script>
 
 	<script>
   QUnit.test("Full Object Exists", function( assert ) {
+    const cookieClass = new cookiesJs();
     //Check if exist
-    assert.notEqual(typeof window.CookieObj, 'undefined');
-    assert.notEqual(typeof window.CookieObj.setCookie, 'undefined');
-    assert.notEqual(typeof window.CookieObj.getCookie, 'undefined');
-    assert.notEqual(typeof window.CookieObj.checkCookie, 'undefined');
+    assert.notEqual(typeof cookieClass, 'undefined');
+    assert.notEqual(typeof cookieClass.setCookie, 'undefined');
+    assert.notEqual(typeof cookieClass.getCookie, 'undefined');
+    assert.notEqual(typeof cookieClass.checkCookie, 'undefined');
   });
+
   QUnit.test("Full Object Set/Get Cookie", function( assert ) {
+    const cookieClass = new cookiesJs();
     //Set Cookie
     const cookieName = 'cookieTest';
     const cookieValue = 'TestPass';
-    window.CookieObj.setCookie(cookieName, cookieValue, 1)    
-    assert.equal(window.CookieObj.getCookie(cookieName), cookieValue);
+    cookieClass.setCookie(cookieName, cookieValue, 1)    
+
+    assert.equal(cookieClass.getCookie(cookieName), cookieValue);
   });
+
   QUnit.test("Full Object Check Cookie False", function( assert ) {
+    const cookieClass = new cookiesJs();
     const cookieName = 'cookieCheckTestFalse'; 
-    assert.equal(window.CookieObj.checkCookie(cookieName), false);
+    assert.equal(cookieClass.checkCookie(cookieName), false);
   });
+
   QUnit.test("Full Object Check Cookie True", function( assert ) {
+    const cookieClass = new cookiesJs();
     const cookieName = 'cookieCheckTestTrue';
     const cookieValue = 'TestPass';
-    window.CookieObj.setCookie(cookieName, cookieValue, 1)  
-    assert.equal(window.CookieObj.checkCookie(cookieName), true);
+    cookieClass.setCookie(cookieName, cookieValue, 1)  
+
+    assert.equal(cookieClass.checkCookie(cookieName), true);
   });
   </script>
 </head>
