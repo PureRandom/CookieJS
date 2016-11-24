@@ -36,5 +36,5 @@ Information Update
 ### 1.3.0
 Updated to complie with the Airbnb Style Guide using eslint.
 
-### 1.3.5
+### 1.3.6
 Updated to add ES6 Class.

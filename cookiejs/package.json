@@ -3,7 +3,7 @@
     "displayName": "CookieJs",
     "description": "JavaScript Cookie Object and Functions to Create, Edit, Get and Check Cookies.",
     "icon": "images/CookieIcon.png",
-    "version": "1.3.5",
+    "version": "1.3.6",
     "publisher": "cpateman",
     "galleryBanner": {
         "color": "#f0db4f",
