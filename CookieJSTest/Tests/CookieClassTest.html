@@ -28,6 +28,45 @@
     assert.equal(cookieClass.getCookie(cookieName), cookieValue);
   });
 
+  QUnit.test("Full Object Delete Cookie", function( assert ) {
+    const cookieClass = new cookiesJs();
+    //Set Cookie
+    const cookieName = 'cookieTest';
+    const cookieValue = 'TestPass';
+    cookieClass.setCookie(cookieName, cookieValue, 1);  
+
+    assert.equal(cookieClass.checkCookie(cookieName), true);
+
+    cookieClass.deleteCookie(cookieName);
+    assert.equal(cookieClass.checkCookie(cookieName), false);
+  });
+
+  QUnit.test("Full Object Delete All Cookies", function( assert ) {
+    const cookieClass = new cookiesJs();
+    //Set Cookie
+    const cookiesObj = {
+      'cookie1':'cookieValue1',
+      'cookie2':'cookieValue2',
+      'cookie3':'cookieValue3',
+      'cookie4':'cookieValue4',
+      'cookie5':'cookieValue5',
+    };
+    for (let k in cookiesObj){
+      cookieClass.setCookie(k, cookiesObj[k], 1);
+    } 
+
+    // Check Cookies Made
+    for (let k in cookiesObj){
+      assert.equal(cookieClass.checkCookie(k), true);
+    } 
+    
+    cookieClass.deleteAllCookies();
+    // Check Cookies Deleted
+    for (let k in cookiesObj){
+      assert.equal(cookieClass.checkCookie(k), false);
+    } 
+  });
+
   QUnit.test("Full Object Check Cookie False", function( assert ) {
     const cookieClass = new cookiesJs();
     const cookieName = 'cookieCheckTestFalse'; 
@@ -41,6 +80,30 @@
     cookieClass.setCookie(cookieName, cookieValue, 1)  
 
     assert.equal(cookieClass.checkCookie(cookieName), true);
+  });
+  QUnit.test("Full Object Generator All Cookies", function( assert ) {
+    const cookieClass = new cookiesJs();
+    //Delete Previous Cookies
+    cookieClass.deleteAllCookies();
+    //Set Cookies
+    const cookiesObj = {
+      'cookie1':'cookieValue1',
+      'cookie2':'cookieValue2',
+      'cookie3':'cookieValue3',
+      'cookie4':'cookieValue4',
+      'cookie5':'cookieValue5',
+    };
+    for (let k in cookiesObj){
+      cookieClass.setCookie(k, cookiesObj[k], 1);
+    }
+
+    // Loop Gen and test
+    const gen = cookieClass.genCookies();
+    for (let k in cookiesObj){
+      const cookie = gen.next().value;
+      assert.equal(cookie.name, k);
+      assert.equal(cookie.value, cookiesObj[k]);
+    }
   });
   </script>
 </head>

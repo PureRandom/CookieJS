@@ -1,0 +1,22 @@
+<snippet>
+    <content><![CDATA[function *genCookies() {
+        const ca = document.cookie.split(';');
+        let index = 0;
+        while (index < ca.length) {
+            const c = ca[index];
+            index++;
+            const cobj = {
+                name: c.split('=')[0].trim(),
+                value: c.split('=')[1].trim(),
+            };
+            yield cobj;
+        }
+    }
+]]></content>
+    <!-- Optional: Tab trigger to activate the snippet -->
+    <tabTrigger>gencookie</tabTrigger>
+    <!-- Optional: Scope the tab trigger will be active in -->
+    <scope>source.javascript</scope>
+    <!-- Optional: Description to show in the menu -->
+    <description>ES6 Generator through all cookies.</description>
+</snippet>

@@ -1,0 +1,15 @@
+<snippet>
+    <content><![CDATA[function deleteAllCookies() {
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i += 1) {
+            this.deleteCookie(ca[i].split('=')[0]);
+        }
+    }
+]]></content>
+    <!-- Optional: Tab trigger to activate the snippet -->
+    <tabTrigger>delallcookie</tabTrigger>
+    <!-- Optional: Scope the tab trigger will be active in -->
+    <scope>source.javascript</scope>
+    <!-- Optional: Description to show in the menu -->
+    <description>Delete ALL cookies from scope.</description>
+</snippet>
